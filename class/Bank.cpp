@@ -1,4 +1,4 @@
-// 20190414_ex4.cpp: ¥D­n±M®×ÀÉ¡C
+// 20190414_ex4.cpp: ä¸»è¦å°ˆæ¡ˆæª”ã€‚
 
 #include "stdafx.h"
 #include <iostream>
@@ -11,59 +11,59 @@ class  Deposit {
 
   private :
 
-    // ©Ò¦³¦s´Ú±b¸¹ªº§Q²v
+    // æ‰€æœ‰å­˜æ¬¾å¸³è™Ÿçš„åˆ©ç‡
     static  double  interest_rate ;
 
-    // ¦s´Ú
+    // å­˜æ¬¾
     Dollar      amount ;
 
   public :
 
-    // «Øºc¦¨­û¨ç¦¡
+    // å»ºæ§‹æˆå“¡å‡½å¼
     Deposit( Dollar money = 0 ) { amount = money ; }
 
-    // ³]©w©Ò¦³¦s´Ú±b¸¹ªº·s§Q²v
+    // è¨­å®šæ‰€æœ‰å­˜æ¬¾å¸³è™Ÿçš„æ–°åˆ©ç‡
     static  void  set_rate( double rate ) { 
         interest_rate = rate ; 
     }
 
-    // ¿é¥X¦s´Ú
+    // è¼¸å‡ºå­˜æ¬¾
     Dollar  deposit() const { return  amount ; }
 
-    // ¿é¥X§Q®§
+    // è¼¸å‡ºåˆ©æ¯
     Dollar  interest() const { return  amount * interest_rate ; } 
 
 } ;
 
-// ³]©w¦s´Ú±b¸¹Ãş§Oªº¤º©wÀRºA¸ê®Æªì­È (¤]¥i¥H¤£¶·³]ªì­È, 
-// ¦ı¤´¶·©w¸q)
+// è¨­å®šå­˜æ¬¾å¸³è™Ÿé¡åˆ¥çš„å…§å®šéœæ…‹è³‡æ–™åˆå€¼ (ä¹Ÿå¯ä»¥ä¸é ˆè¨­åˆå€¼, 
+// ä½†ä»é ˆå®šç¾©)
 double  Deposit::interest_rate = 0.05 ;
 
 int  main() {
 
     const int no = 5 ;
 
-    // ³]©w¦s´Ú±b¸¹
+    // è¨­å®šå­˜æ¬¾å¸³è™Ÿ
     Deposit  account[no] = { 100 , 300 , 200 , 350 , 50 } ;
 
     double  interest_rate ;
      
-    cout << "> ¿é¤J§Q²v : " ;
+    cout << "> è¼¸å…¥åˆ©ç‡ : " ;
     cin >> interest_rate ;
     
-    // ³]©w¦s´Ú±b¸¹ªº·s§Q²v 
+    // è¨­å®šå­˜æ¬¾å¸³è™Ÿçš„æ–°åˆ©ç‡ 
     Deposit::set_rate(interest_rate) ;
 
-    // ­pºâÁ`¦s´Ú»PÁ`§Q®§
+    // è¨ˆç®—ç¸½å­˜æ¬¾èˆ‡ç¸½åˆ©æ¯
     double  total_deposit = 0. , total_interest = 0. ;
     for ( int i = 0 ; i < no ; ++i ) {
-		cout << "²Ä" << i+1 << "¦ì¦s´Ú = " << account[i].deposit() << " ,§Q®§ = " << account[i].interest() << endl; 
+		cout << "ç¬¬" << i+1 << "ä½å­˜æ¬¾ = " << account[i].deposit() << " ,åˆ©æ¯ = " << account[i].interest() << endl; 
         total_deposit  += account[i].deposit() ;
         total_interest += account[i].interest() ;
     }
 
-    cout << "> Á`¦s´Ú¬° : " << total_deposit  << endl ;
-    cout << "> Á`§Q®§¬° : " << total_interest << endl ;
+    cout << "> ç¸½å­˜æ¬¾ç‚º : " << total_deposit  << endl ;
+    cout << "> ç¸½åˆ©æ¯ç‚º : " << total_interest << endl ;
 	system("pause");
     return 0 ;
     
